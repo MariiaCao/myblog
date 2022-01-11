@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CursoController;
+use App\Http\Controllers\ContactanosController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,10 @@ Route::get('/', HomeController::class)->name('home');
 Route::resource('cursos', CursoController::class)->parameters(['asignaturas'=>'curso'])->names('cursos'); //crea todas las rutas, create,update,destroy, edit
 
 Route::view('nosotros','nosotros')->name('nosotros'); // el metodo view lo utilizarenmos para mostrar contenido estatico
+
+Route::get('contactanos',[ContactanosController::class,'index'])->name('contactanos.index');
+
+Route::post('contactanos', [ContactanosController::class,'store'])->name('contactanos.store');
 
 
 /*
